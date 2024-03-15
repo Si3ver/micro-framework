@@ -18,6 +18,7 @@ app.set("view engine", "html");
 app.get("/", function (req, res) {
   // 使用 ejs 模版引擎填充主应用 views/main.html 中的 iframeUrl 变量，并将其渲染到浏览器
   res.render("main", {
+    selfUrl: `http://${host}:${port.main}#aaa`,
     // 填充 iframe 应用的地址，只有端口不同，iframe 应用和 main 应用跨域但是同站
     iframeUrl: `http://${host}:${port.micro}`
   });

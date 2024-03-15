@@ -9,5 +9,10 @@
   </head>
   <body>
     <h1>同站的 iframe 应用</h1>
+    <script>
+      console.log('[micro]:', window, location.ancestorOrigins);
+      console.log('[micro]:', window.parent === window);
+      console.log('[micro]:', window.top === window);
+    </script>
   </body>
 </html>
