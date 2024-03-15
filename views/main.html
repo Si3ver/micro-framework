@@ -12,16 +12,26 @@
     <button onclick="javascript:window.open('<%= iframeUrl %>')">在新的标签页打开 iframe 应用</button>
     <br>
     <!-- 嵌套自己 -->
-    <iframe src="<%= selfUrl %>"></iframe>
+    <iframe id="if1" src="<%= selfUrl %>"></iframe>
     <br>
     <!-- 同站应用：iframe.html -->
-    <iframe src="<%= iframeUrl %>"></iframe>
+    <iframe id="if2" src="<%= iframeUrl %>"></iframe>
     <!-- 跨站应用: https://juejin.cn/ -->
-    <iframe src="https://juejin.cn"></iframe>
+    <iframe  id="if3" src="https://juejin.cn"></iframe>
     <script>
         console.log('[main]', window, location.ancestorOrigins);
         console.log('[main]', window.top === window);
         console.log('[main]', window.parent === window);
+    </script>
+    <script>
+        const if1 = document.querySelector('#if1').contentWindow;
+        const if2 = document.querySelector('#if2').contentWindow;
+        const if3 = document.querySelector('#if3').contentWindow;
+
+        if1.document.querySelector('body').style.backgroundColor = 'pink';
+
+        // if2 不同源，直接操作 DOM 默认会被浏览器 block
+        if2.document.querySelector('body').style.backgroundColor = 'pink';
     </script>
 </body>
 </html>
