@@ -8,5 +8,5 @@ npm run same-origin
 # 主子应用跨域同站
 npm run same-site
 # 主子应用跨站
-npm run corss-site
+npm run cross-site
 ```
