@@ -15,6 +15,7 @@ app.set("view engine", "html");
 app.get("/", function (req, res) {
   // 增加 SameSite 和 Secure 属性
   const cookieOptions = { sameSite: "none", secure: true };
+  // const cookieOptions = {}
   res
     .cookie("micro-app", "true", cookieOptions)
     // 设置 iframe 微应用的 cookie 标识，顺便观察能否覆盖主应用的 cookie 标识

@@ -37,8 +37,8 @@ app.set("view engine", "html");
 app.get("/", function (req, res) {
   res.cookie("main-app", "true");
   res.render("main", {
-    micro: `http://ziyi.example.com:${port.micro}`,
-    // micro: 'https://95e0-14-153-81-22.ngrok-free.app',
+    // micro: `http://ziyi.example.com:${port.micro}`,
+    micro: 'https://95e0-14-153-81-22.ngrok-free.app',
   });
 });
 
