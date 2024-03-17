@@ -56,9 +56,9 @@ class MicroApp1Element extends HTMLElement {
     // 新增 Ajax 请求，用于请求 micro1.js 所在的服务
     // 需要注意 micro1.js 动态加载在主应用 localhost:4000 下，因此请求是跨域的
     window
-      .fetch("https://192.168.1.12:3001/cors", {
+      .fetch("https://192.168.1.16:3001/cors", {
         method: "post",
-        credentials: "include"
+        // credentials: "include" // 跨域请求头不携带 cookie
       })
       .then((res) => res.json())
       .catch((err) => {
