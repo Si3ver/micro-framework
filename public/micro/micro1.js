@@ -8,7 +8,7 @@ document.body.appendChild(root);
 // iframe src: about:blank
 // src 属性：嵌入一个遵从同源策略的空白页：https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/iframe
 // 源的继承：在页面中通过 about:blank 或 javascript: URL 执行的脚本会继承打开该 URL 的文档的源，因为这些类型的 URL 没有包含源服务器的相关信息：https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy#%E6%BA%90%E7%9A%84%E7%BB%A7%E6%89%BF
-console.log(window.document.domain === window.parent.document.domain); // true
+console.log('[micro1] domain', window.parent === window, window.document.domain === window.parent.document.domain); // true
 
 // 可以请求主应用服务所在的接口
 var oReq = new XMLHttpRequest();
@@ -16,10 +16,10 @@ oReq.addEventListener("load", reqListener);
 oReq.open("POST", "/microapps");
 oReq.send();
 function reqListener() {
-  console.log(this.responseText);
+  console.log('[micro1] responseText', JSON.stringify(JSON.parse(this.responseText), null, 2));
 }
 
-console.log(window.location);
+console.log('[micro1] location', window.location);
 
 // history 报错
 window.history.pushState({ key: "hello" }, "", "/test");
